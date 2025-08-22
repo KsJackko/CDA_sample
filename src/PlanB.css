@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  background-color: white;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.tabs {
+  background-color: white;
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab {
+  flex: 1;
+  padding: 16px 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background-color: #f8f9fa;
+}
+
+.tab.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+  background-color: #f8f9fa;
+}
+
+.content {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.medications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.medication-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.medication-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.medication-name-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edit-icon {
+  font-size: 16px;
+  color: #666;
+}
+
+.medication-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-scheduled {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-overdue {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.status-administered {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.medication-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-administer {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.btn-administer:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-overdue {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.btn-overdue:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.btn-edit {
+  background-color: transparent;
+  color: #666;
+  border-color: #ddd;
+}
+
+.btn-edit:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.medication-details {
+  margin-top: 16px;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.value {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.medication-meta {
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.medication-meta div {
+  font-size: 12px;
+  color: #666;
+}
+
+.administration-log,
+.schedule {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  color: #666;
+}
+
+/* Schedule Styles */
+.schedule {
+  padding: 24px;
+}
+
+.schedule-header {
+  margin-bottom: 24px;
+}
+
+.schedule-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s ease;
+}
+
+.schedule-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-time {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  min-width: 80px;
+  margin-right: 24px;
+}
+
+.schedule-content {
+  flex: 1;
+  margin-right: 16px;
+}
+
+.schedule-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.schedule-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.schedule-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+
+  .medication-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .medication-name-status {
+    justify-content: flex-start;
+  }
+
+  .medication-actions {
+    justify-content: flex-end;
+  }
+
+  .detail-row {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    padding: 12px 16px;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .schedule-time {
+    min-width: auto;
+    margin-right: 0;
+  }
+
+  .schedule-content {
+    margin-right: 0;
+  }
+}
