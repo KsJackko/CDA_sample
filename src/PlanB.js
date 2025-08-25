@@ -195,8 +195,8 @@ function PlanB() {
           minute: '2-digit',
           hour12: true,
         }),
-        administeredBy: 'Nurse Johnson', // This could be dynamic
-        patient: 'John Smith', // This could be dynamic
+        administeredBy: 'Testing Account', // This could be dynamic
+        patient: 'Chan Tai Man', // This could be dynamic
         status: 'Administered',
         timestamp: now.getTime(), // For sorting
       };
