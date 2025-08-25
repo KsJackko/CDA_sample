@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -304,6 +304,254 @@ body {
   font-style: italic;
 }
 
+/* Weekly Timetable Styles */
+.weekly-timetable-container {
+  padding: 24px;
+  background-color: #f5f5f5;
+}
+
+.weekly-timetable {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.timetable-header {
+  padding: 24px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.timetable-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.week-navigation {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.timetable-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 1fr);
+  border-collapse: collapse;
+}
+
+.time-header {
+  background-color: #f8f9fa;
+  padding: 16px 12px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.day-header {
+  background-color: #f8f9fa;
+  padding: 16px 12px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.day-header.today {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.day-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.day-date {
+  font-size: 12px;
+  color: #666;
+}
+
+.day-header.today .day-name,
+.day-header.today .day-date {
+  color: #1976d2;
+}
+
+.time-slot {
+  background-color: #f8f9fa;
+  padding: 16px 12px;
+  font-size: 12px;
+  color: #666;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.timetable-cell {
+  padding: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  min-height: 60px;
+  background-color: #fff;
+}
+
+.timetable-cell.today-column {
+  background-color: #fafcff;
+}
+
+.medication-entry {
+  background-color: #e8f5e8;
+  border: 1px solid #4caf50;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.medication-entry:last-child {
+  margin-bottom: 0;
+}
+
+.medication-name {
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.medication-dosage {
+  color: #4caf50;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.medication-nurse {
+  color: #666;
+  font-size: 10px;
+}
+
+/* Medications Header Styles */
+.medications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.medications-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.date-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.date-selector label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  white-space: nowrap;
+}
+
+.date-input,
+.date-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background: white;
+  min-width: 150px;
+  transition: border-color 0.2s ease;
+}
+
+.date-input:focus,
+.date-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.date-input:hover,
+.date-select:hover {
+  border-color: #adb5bd;
+}
+
+.date-select {
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.date-select option {
+  padding: 8px;
+}
+
+/* Responsive design for medications header */
+@media (max-width: 768px) {
+  .medications-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .medications-header h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .date-selector {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .date-input,
+  .date-select {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .medications-header {
+    padding: 12px;
+  }
+
+  .medications-header h2 {
+    font-size: 18px;
+  }
+
+  .date-selector {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .date-selector label {
+    text-align: center;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .content {
@@ -356,5 +604,68 @@ body {
 
   .log-title {
     font-size: 14px;
+  }
+
+  .timetable-grid {
+    grid-template-columns: 60px repeat(7, 1fr);
+    font-size: 12px;
+  }
+
+  .time-header,
+  .day-header {
+    padding: 12px 8px;
+  }
+
+  .timetable-cell {
+    padding: 4px;
+    min-height: 50px;
+  }
+
+  .medication-entry {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .day-name {
+    font-size: 12px;
+  }
+
+  .day-date {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weekly-timetable-container {
+    padding: 16px;
+  }
+
+  .timetable-header {
+    padding: 16px;
+  }
+
+  .timetable-header h2 {
+    font-size: 20px;
+  }
+
+  .timetable-grid {
+    grid-template-columns: 50px repeat(7, 1fr);
+  }
+
+  .day-header {
+    padding: 8px 4px;
+  }
+
+  .day-name {
+    font-size: 11px;
+  }
+
+  .day-date {
+    font-size: 9px;
+  }
+
+  .medication-entry {
+    font-size: 9px;
+    padding: 3px 4px;
   }
 }
