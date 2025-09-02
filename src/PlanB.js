@@ -167,6 +167,41 @@ function PlanB() {
       prescribedBy: 'Dr. Anderson',
       duration: '2025-08-26 to 2025-08-26',
     },
+
+    // UNSCHEDULED medications (available anytime)
+    {
+      id: 15,
+      name: 'Paracetamol PRN',
+      status: 'unscheduled',
+      dosage: '500mg',
+      frequency: 'As needed for pain',
+      route: 'PO',
+      nextDue: 'PRN',
+      prescribedBy: 'Dr. Smith',
+      duration: 'unscheduled',
+    },
+    {
+      id: 16,
+      name: 'Salbutamol Inhaler',
+      status: 'unscheduled',
+      dosage: '100mcg',
+      frequency: 'As needed for breathlessness',
+      route: 'Inhalation',
+      nextDue: 'PRN',
+      prescribedBy: 'Dr. Wong',
+      duration: 'unscheduled',
+    },
+    {
+      id: 17,
+      name: 'Glyceryl Trinitrate',
+      status: 'unscheduled',
+      dosage: '0.4mg',
+      frequency: 'As needed for chest pain',
+      route: 'Sublingual',
+      nextDue: 'PRN',
+      prescribedBy: 'Dr. Chen',
+      duration: 'unscheduled',
+    },
   ]);
 
   const handleAdminister = (id) => {
@@ -294,6 +329,8 @@ function PlanB() {
           return 'status-overdue';
         case 'administered':
           return 'status-administered';
+        case 'unscheduled':
+          return 'status-unscheduled';
         default:
           return '';
       }
@@ -307,6 +344,8 @@ function PlanB() {
           return 'Overdue';
         case 'administered':
           return 'Administered';
+        case 'unscheduled':
+          return 'Unscheduled';
         default:
           return '';
       }
@@ -320,6 +359,8 @@ function PlanB() {
           return 'Administer (Overdue)';
         case 'administered':
           return 'Edit';
+        case 'unscheduled':
+          return 'Administer PRN';
         default:
           return 'Edit';
       }
@@ -333,6 +374,8 @@ function PlanB() {
           return 'btn-overdue';
         case 'administered':
           return 'btn-edit';
+        case 'unscheduled':
+          return 'btn-unscheduled';
         default:
           return 'btn-edit';
       }
@@ -432,7 +475,7 @@ function PlanB() {
           className={`tab ${activeTab === 'administrationLog' ? 'active' : ''}`}
           onClick={() => setActiveTab('administrationLog')}
         >
-          Weekly Timetable
+          Administration Timetable
         </button>
         <button
           className={`tab ${activeTab === 'logList' ? 'active' : ''}`}
